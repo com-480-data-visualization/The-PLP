@@ -2,7 +2,7 @@
 
 | Student's name | SCIPER |
 | -------------- | ------ |
-| | |
+|Valentin Peyron |301340 |
 | | |
 | | |
 
