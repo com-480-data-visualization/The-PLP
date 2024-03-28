@@ -39,6 +39,7 @@ To do this, we're going to create a website containing an interactive map of the
 > Pre-processing of the data set you chose
 > - Show some basic statistics and get insights about the data
 
+Look at the `data_analysis` Jupyter notebook, for the preprocessing and preliminary insight of our data.
 ### Related work
 
 The discourse surrounding gun ownership and associated themes constitutes a subject matter of extensive debate, albeit one that is often inadequately documented due to challenges in comprehensive data collection across all countries. Consequently, a substantial body of literature has emerged on this subject.
