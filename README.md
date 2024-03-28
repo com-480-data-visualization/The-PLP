@@ -41,22 +41,17 @@ To do this, we're going to create a website containing an interactive map of the
 
 Look at the `data_analysis` Jupyter notebook, for the preprocessing and preliminary insight of our data.
 ### Related work
+The topic of gun ownership and its related issues sparks a lot of debate. However, getting a full picture is often hard due to the difficulty in collecting data from every country. This gap has led to a significant amount of research on the subject.
 
-The discourse surrounding gun ownership and associated themes constitutes a subject matter of extensive debate, albeit one that is often inadequately documented due to challenges in comprehensive data collection across all countries. Consequently, a substantial body of literature has emerged on this subject.
+From what we've seen in the existing literature, it appears that no study has yet to analyze the statistical link between gun ownership across countries and the rates of crime and death in a way that's easy for everyone to understand. While there are studies out there, they tend to be either too academic and hard to interact with or interactive but not deep enough in their analysis. Our project aims to fill this gap by exploring these relationships in depth and presenting the findings in an easy-to-digest format. We want to highlight the differences in crime and murder rates related to gun ownership without bombarding our audience with too much data, offering a fresh take that hasn't been seen before. Of course, it's possible that similar efforts have been made, but we haven't come across any in our research.
 
-However, it is our opinion, based on our review of existing scholarship, that no prior research endeavor has systematically examined the statistical relationship between gun ownership across various nations and crime and mortality rates in a visually accessible manner conducive to comprehension by a broad readership. While some studies have presented data and their interrelation in a scholarly and non-interactive format, and others have utilized interactive methods, none have delved as deeply into the correlation between these phenomena as our project endeavors to do, while keeping the information accessible to everyone
-.
-We believe that by employing various methodologies to emphasize disparities in values, specifically pertaining to crime and murder rates, without overwhelming the user with excessive data points, our project achieves a novel synthesis of information unparalleled by prior works. Nevertheless, we acknowledge the possibility that similar approaches may have been undertaken in related research; however, such instances were not found in the course of our investigation.
+We were inspired by the way our teacher presented past projects and by different studies that, while not directly related, used similar methods to present their data. Some of the works we looked at include:
 
-Our inspiration was taken from the presentation the teacher made in the first class of previous works, as well as works done in different topics but using similar techniques.
+- [Gun Ownership by Country](https://worldpopulationreview.com/country-rankings/gun-ownership-by-country)
+- [Countries with the Highest Gun Ownership 2024](https://ceoworld.biz/2024/01/05/revealed-countries-with-highest-gun-ownership-2024/)
 
-Some related works can be found at : 
-- https://worldpopulationreview.com/country-rankings/gun-ownership-by-country
-- https://ceoworld.biz/2024/01/05/revealed-countries-with-highest-gun-ownership-2024/
-
-Unrelated works that use similar techniques to display data:
- - https://healthmap.org/pt/
-
+And for unrelated studies that share our approach to data presentation, we found this interesting:
+- [HealthMap](https://healthmap.org/pt/)
 ## Milestone 2 (26th April, 5pm)
 
 **10% of the final grade**
