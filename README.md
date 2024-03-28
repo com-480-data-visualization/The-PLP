@@ -28,10 +28,11 @@ For our project, we selected two datasets. The first is available at [Gun Deaths
 > - What am I trying to show with my visualization?
 > - Think of an overview for the project, your motivation, and the target audience.
 
+The aim of our project is to inform users about the link between gun ownership and crime rates in each country. 
 
-Our project is to highlight the impact of weapons on the number of gun deaths worldwide.
+- To do this, we're going to create a website containing an interactive map of the world. A first "discovery" tab allows you to select a country and obtain the main information (population size, number of guns per inhabitant, number of gun deaths per year...). The second "quiz" tab has a didactic aspect: when we click on a country, we have to guess its name and its degree of danger (low, medium, high) in relation to its crime rate.
 
-To do this, we're going to create a website containing an interactive map of the world. There will be a first 'discovery' tab on which we can select a country and obtain all the main information (population size, number of guns per inhabitant, number of gun deaths per year...). In the second 'quiz' tab, there's a didactic aspect, where when we click on a country we have to guess its name and its degree of danger (low, medium, high).
+- There have been mass shootings all over the world for several years now (in California, France and recently in Russia). Our site is therefore aimed at anyone wishing to study the correlation between the free exchange of weapons in a country and its crime rate, as well as at tourists concerned about the risk of danger in the countries they visit.
 
 
 ### Exploratory Data Analysis
