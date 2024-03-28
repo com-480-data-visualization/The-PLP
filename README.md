@@ -4,7 +4,7 @@
 | -------------- | ------ |
 |Valentin Peyron |301340 |
 |Benoît Gallois |296867 |
-| | |
+| André E. Santo | 376762 |
 
 [Milestone 1](#milestone-1) • [Milestone 2](#milestone-2) • [Milestone 3](#milestone-3)
 
@@ -40,11 +40,20 @@ To do this, we're going to create a website containing an interactive map of the
 
 ### Related work
 
+The discourse surrounding gun ownership and associated themes constitutes a subject matter of extensive debate, albeit one that is often inadequately documented due to challenges in comprehensive data collection across all countries. Consequently, a substantial body of literature has emerged on this subject.
 
-> - What others have already done with the data?
-> - Why is your approach original?
-> - What source of inspiration do you take? Visualizations that you found on other websites or magazines (might be unrelated to your data).
-> - In case you are using a dataset that you have already explored in another context (ML or ADA course, semester project...), you are required to share the report of that work to outline the differences with the submission for this class.
+However, it is our opinion, based on our review of existing scholarship, that no prior research endeavor has systematically examined the statistical relationship between gun ownership across various nations and crime and mortality rates in a visually accessible manner conducive to comprehension by a broad readership. While some studies have presented data and their interrelation in a scholarly and non-interactive format, and others have utilized interactive methods, none have delved as deeply into the correlation between these phenomena as our project endeavors to do, while keeping the information accessible to everyone
+.
+We believe that by employing various methodologies to emphasize disparities in values, specifically pertaining to crime and murder rates, without overwhelming the user with excessive data points, our project achieves a novel synthesis of information unparalleled by prior works. Nevertheless, we acknowledge the possibility that similar approaches may have been undertaken in related research; however, such instances were not found in the course of our investigation.
+
+Our inspiration was taken from the presentation the teacher made in the first class of previous works, as well as works done in different topics but using similar techniques.
+
+Some related works can be found at : 
+- https://worldpopulationreview.com/country-rankings/gun-ownership-by-country
+- https://ceoworld.biz/2024/01/05/revealed-countries-with-highest-gun-ownership-2024/
+
+Unrelated works that use similar techniques to display data:
+ - https://healthmap.org/pt/
 
 ## Milestone 2 (26th April, 5pm)
 
