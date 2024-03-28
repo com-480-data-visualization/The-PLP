@@ -3,7 +3,7 @@
 | Student's name | SCIPER |
 | -------------- | ------ |
 |Valentin Peyron |301340 |
-| | |
+|Benoît Gallois |296867 |
 | | |
 
 [Milestone 1](#milestone-1) • [Milestone 2](#milestone-2) • [Milestone 3](#milestone-3)
@@ -20,14 +20,18 @@ Please, fill the following sections about your project.
 ### Dataset
 
 > Find a dataset (or multiple) that you will explore. Assess the quality of the data it contains and how much preprocessing / data-cleaning it will require before tackling visualization. We recommend using a standard dataset as this course is not about scraping nor data processing.
->
-> Hint: some good pointers for finding quality publicly available datasets ([Google dataset search](https://datasetsearch.research.google.com/), [Kaggle](https://www.kaggle.com/datasets), [OpenSwissData](https://opendata.swiss/en/), [SNAP](https://snap.stanford.edu/data/) and [FiveThirtyEight](https://data.fivethirtyeight.com/)), you could use also the DataSets proposed by the ENAC (see the Announcements section on Zulip).
 
 ### Problematic
 
 > Frame the general topic of your visualization and the main axis that you want to develop.
 > - What am I trying to show with my visualization?
 > - Think of an overview for the project, your motivation, and the target audience.
+
+
+Our project is to highlight the impact of weapons on the number of gun deaths worldwide.
+
+To do this, we're going to create a website containing an interactive map of the world. There will be a first 'discovery' tab on which we can select a country and obtain all the main information (population size, number of guns per inhabitant, number of gun deaths per year...). In the second 'quiz' tab, there's a didactic aspect, where when we click on a country we have to guess its name and its degree of danger (low, medium, high).
+
 
 ### Exploratory Data Analysis
 
