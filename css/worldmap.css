@@ -15,20 +15,23 @@
     position: fixed;
     top: 0;
     right: 0;
-    background-color: grey;
+    background-color: black;
     overflow: auto;
     z-index: 1000; /* S'assure qu'il est au-dessus de la carte */
     display: flex;
     flex-direction: column;
 }
 
-.info-panel.open {
-    width: 25%; /* Taille du panneau ouvert */
-}
+  .info-panel.open {
+        width: 25%; /* Taille du panneau ouvert */
+        color: white; /* Couleur du texte en blanc */
+    }
 
-#info-content {
-    padding: 20px;
-}
+    #info-content {
+        padding: 20px; /* Marge intérieure pour l'esthétique */
+        color: white; /* Couleur du texte en blanc */
+    }
+
 
 .close-button {
     font-size: 24px; /* Taille de la croix */

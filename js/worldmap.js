@@ -18,8 +18,11 @@ function initializeMap() {
     // Ajout du fond de carte
     L.esri.basemapLayer('ImageryClarity').addTo(map);
     //L.esri.basemapLayer('ImageryLabels').addTo(map);
+
+    
     return map;
 }
+
 
 function addMapBounds(map) {
     // Empêche la carte de se "boucler" en définissant des limites strictes
@@ -107,12 +110,14 @@ function displayCountryInfo(countryName) {
         const deathData = data[1].find(d => d.country === countryName);
 
         const infoHtml = `
-            <h2>${countryName}</h2>
-            <div>Nombre d'armes en circulation: ${ownershipData ? ownershipData.gunOwnershipByCountry_firearms : 'Data not available'}</div>
-            <div>Taux de propriété par 100 personnes: ${ownershipData ? ownershipData.gunOwnershipByCountry_per100 : 'Data not available'}</div>
-            <div>Morts par armes à feu (Total 2024): ${deathData ? deathData.GunDeathsAllCausesTotal2019 : 'Data not available'}</div>
-            <div>Taux de mortalité par armes à feu (pour 100k, 2024): ${deathData ? deathData.GunDeathsViolentRatePer100k2019 : 'Data not available'}</div>
-        `;
+        <h2>${countryName}</h2>
+        <div>Number of firearms in circulation: ${ownershipData ? ownershipData.gunOwnershipByCountry_firearms : 'Data not available'}</div>
+        <div>Ownership rate per 100 people: ${ownershipData ? ownershipData.gunOwnershipByCountry_per100 : 'Data not available'}</div>
+        
+        <div>Gun-related deaths (Total 2024): ${deathData ? deathData.GunDeathsAllCausesTotal2019 : 'Data not available'}</div>
+        <div>Gun-related death rate (per 100k, 2024): ${deathData ? deathData.GunDeathsViolentRatePer100k2019 : 'Data not available'}</div>
+    `;
+    
         document.getElementById('info-content').innerHTML = infoHtml;
         openInfoPanel();
     }).catch(error => {
