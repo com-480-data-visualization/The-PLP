@@ -55,7 +55,7 @@ And for unrelated studies that share our approach to data presentation, we found
 - [HealthMap](https://healthmap.org/pt/)
 ## Milestone 2 (26th April, 5pm)
 
-**10% of the final grade**
+[Description of the project](milestone2.pdf)
 
 
 ## Milestone 3 (31st May, 5pm)
