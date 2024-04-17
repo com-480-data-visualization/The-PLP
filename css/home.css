@@ -1,4 +1,59 @@
-/* home.css - Styles spécifiques pour la page d'accueil */
-.home {
-    background-color: #add8e6; /* Light blue */
+body {
+    font-family: 'carter one','cursive';
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light grey background */
+}
+
+header {
+    background-color: #333; /* Dark header */
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.perilpedia-button {
+    background-color: #333; /* Dark header */
+    color: blue;
+    padding: 10px 200px;
+    text-align: center;
+    border: darkblue;
+    cursor: pointer;
+}
+
+header h1 {
+    margin: 0;
+    cursor: pointer;
+}
+
+nav {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+
+nav button {
+    background-color: #007bff; /* Bootstrap blue */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners for the button */
+    font-size: 16px;
+}
+
+nav button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.content.home {
+    padding: 20px;
+    max-width: 600px;
+    margin: 40px auto;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for floating effect */
+    border-radius: 10px;
 }
