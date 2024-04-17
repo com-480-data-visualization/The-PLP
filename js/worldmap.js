@@ -85,16 +85,6 @@ function showCountryName(e) {
 
 // Fonction appelée lorsque la souris survole un pays
 function highlightFeature(e) {
-    var layer = e.target;
-    var countryName = layer.feature.properties.ADMIN;  // Assurez-vous que cela correspond au nom du pays dans vos données
-
-    d3.json('assets/data/gun-deaths-by-country-2024.json').then(data => {
-        const countryData = data.find(d => d.country === countryName);
-        var dangerRate = countryData ? countryData.GunDeathsViolentRatePer100k2019 : 0;
-
-        // Calculer la couleur en fonction du taux de dangerosité
-        var color = getColorForDangerRate(dangerRate);
-
         layer.setStyle({
             weight: 3,
             color: 'grey',
@@ -102,18 +92,6 @@ function highlightFeature(e) {
             fillOpacity: 0.7,
             dashArray: ''
         });
-    }).catch(error => {
-        console.error('Error loading or processing the gun death rates data: ', error);
-    });
-}
-
-// Fonction pour calculer la couleur en fonction du taux de dangerosité
-function getColorForDangerRate(rate) {
-   const colorScale = d3.scaleLinear()
-    .domain([0, 0.28, 0.78, 2.47, 10, 20, 36.78])
-    .range(['green', 'yellow', 'orange', 'red', 'purple', 'darkred', 'black']);
-
-    return colorScale(rate);
 }
 
 
