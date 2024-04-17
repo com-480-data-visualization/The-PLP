@@ -16,7 +16,7 @@ function initializeMap() {
     });
 
     // Ajout du fond de carte
-    L.esri.basemapLayer('ImageryClarity').addTo(map);
+    L.esri.basemapLayer('Imagery').addTo(map);
     //L.esri.basemapLayer('ImageryLabels').addTo(map);
 
     
