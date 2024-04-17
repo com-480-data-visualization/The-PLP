@@ -1,0 +1,5 @@
+/* quiz.css - Styles spécifiques pour la page Quiz */
+.quizz {
+    background-color: #90ee90; /* Light green */
+    color: black; /* Change la couleur du texte en noir */
+}

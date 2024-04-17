@@ -1,0 +1,53 @@
+/* styles.css - Styles généraux pour le site */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    font-family: abang, serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.banner {
+    background-color: #444;
+    color: white;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.content {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+}
+
+nav button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+nav button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+nav button:focus {
+    outline: red auto 5px;
+}

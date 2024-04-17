@@ -1,0 +1,54 @@
+
+
+.interactive_map, .info-panel {
+    transition: width 0.5s; /* Animation douce lors du redimensionnement */
+}
+
+.interactive_map {
+    height: 100vh;
+    width: 100%; /* Pleine largeur initialement */
+}
+
+.info-panel {
+    width: 0; /* Panneau caché initialement */
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: black;
+    overflow: auto;
+    z-index: 1000; /* S'assure qu'il est au-dessus de la carte */
+    display: flex;
+    flex-direction: column;
+}
+
+  .info-panel.open {
+        width: 25%; /* Taille du panneau ouvert */
+        color: white; /* Couleur du texte en blanc */
+    }
+
+    #info-content {
+        padding: 20px; /* Marge intérieure pour l'esthétique */
+        color: white; /* Couleur du texte en blanc */
+    }
+
+
+.close-button {
+    font-size: 24px; /* Taille de la croix */
+    line-height: 24px; /* Alignement vertical de la croix */
+    width: 30px; /* Largeur du bouton */
+    height: 30px; /* Hauteur du bouton */
+    position: absolute; /* Positionnement absolu dans le coin supérieur droit du panneau */
+    top: 10px;
+    right: 10px;
+    border: none; /* Pas de bordure */
+    background-color: transparent; /* Fond transparent */
+    color: red; /* Couleur rouge pour la croix */
+    cursor: pointer; /* Curseur en forme de pointeur pour indiquer que c'est cliquable */
+    border-radius: 15px; /* Bords arrondis pour esthétique */
+}
+
+.close-button:hover {
+    background-color: #f8f8f8; /* Changement de couleur de fond au survol pour feedback utilisateur */
+}
+
