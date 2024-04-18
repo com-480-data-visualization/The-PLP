@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="https://unpkg.com/esri-leaflet"></script>
-    <script src="js/worldmap.js" defer></script>
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="js/worldmap.js" defer></script>
 </head>
@@ -17,8 +16,8 @@
     <header>
         <button class="perilpedia-button" onclick="window.location.href='index.html'">PerilPedia</button>
         <nav>
-            <button onclick="window.location.href='worldmap.html'">Discovery</button>
-            <button onclick="window.location.href='quiz.html'">Quizz</button>
+            <button class="discovery-button" onclick="window.location.href='worldmap.html'">Discovery</button>
+            <button class="quiz-button" onclick="window.location.href='quiz.html'">Quiz</button>
         </nav>
     </header>
     <div id="map" class="interactive_map"></div>

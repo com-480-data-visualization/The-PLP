@@ -8,6 +8,16 @@
     height: 100vh; /* Full height */
     width: 100%; /* Full width initially */
     transition: width 5.5s ease; /* Smooth transition for width changes */
+    /*: fixed; /* Fixed position to keep the map in the background */
+}
+.discovery-button {
+    background-color: #99ccff;
+}
+
+.discovery-button:hover {
+    background-color:  #99ccff; /* Fond bleu au survol */
+    color: white; /* Texte blanc au survol */
+    transform: scale(1.0);
 }
 
 nav button {

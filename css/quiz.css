@@ -1,5 +1,4 @@
 /* quiz.css - Styles spécifiques pour la page Quiz */
-
 .content_quiz {
     width: 100%;
     flex-grow: 1;
@@ -9,6 +8,47 @@
     font-size: 24px;
     color: white;
     background-color:#99ccff;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    
+}
+
+
+.content_quiz h1 {
+    margin-bottom: 20px; /* Add space below the h1 */
+    position: absolute;
+    top: 10px;
+    text-align: center; /* Center-align text */
+}
+
+.content_quiz p {
+    max-width: 80%; /* Limit the width of the paragraph to improve readability */
+    text-align: center; /* Center-align text */
+}
+
+.interactive_quiz_map {
+    transition: width 5.5s ease; /* Smooth transition for width changes */
+    /*: fixed; /* Fixed position to keep the map in the background */
+    width: 50%;
+    height: 70%;
+    border: 2px solid black;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    position: absolute;
+    left: -20%;
+}
+
+
+.quiz-button {
+    background-color: #99ccff;
+}
+
+.quiz-button:hover {
+    background-color:  #99ccff; /* Fond bleu au survol */
+    color: white; /* Texte blanc au survol */
+    transform: scale(1.0);
 }
 
 
@@ -39,3 +79,4 @@ nav button:hover {
     color: white; /* Texte blanc au survol */
     transform: scale(1.1);
 }
+
