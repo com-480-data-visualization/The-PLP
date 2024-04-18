@@ -6,15 +6,38 @@ body, html {
 }
 
 body {
-    font-family: abang, serif;
+    background-color: #f4f4f4; /* Fond général clair */
+    font-family: 'carter one','cursive';
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 }
 
+header {
+    background-color: #003366; /* Fond bleu foncé pour le header */
+    color: white; /* Texte blanc */
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+    height: 30px;
+    border: 2px solid black; /* Contour noir */
+    
+
+}
+
+.perilpedia-button {
+    background: none;
+    border: none;
+    color: White ;
+    font-size: 24px;
+    cursor: pointer;
+    text-decoration: none ;
+}
+
 .banner {
-    background-color: #444;
+    background-color: blue;
     color: white;
     width: 100%;
     padding: 10px 0;
@@ -31,21 +54,32 @@ body {
     color: white;
 }
 
+nav {
+    text-align: center;
+    padding: 20px 0;
+}
+
 nav button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 10px 20px;
+    background-color: #99ccff; /* Fond blanc pour les boutons */
+    border: 2px solid black; /* Bordure blanche pour se fondre dans le fond */
+    color: white; /* Texte bleu */
+    padding: 10px 30px;
     margin: 0 10px;
-    border-radius: 5px;
     cursor: pointer;
+    border-radius: 20px; /* Coins fortement arrondis */
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2); /* Ombre sous les boutons */
     font-size: 16px;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: background-color 0.3s, color 0.4s; /* Transition pour hover */
+    margin-top: 0px;
+ 
+
 }
 
 nav button:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
+    background-color:  #003366; /* Fond bleu au survol */
+    color: white; /* Texte blanc au survol */
+    transform: scale(1.1);
+
 }
 
 nav button:focus {

@@ -3,3 +3,32 @@
     background-color: #90ee90; /* Light green */
     color: black; /* Change la couleur du texte en noir */
 }
+
+
+nav button {
+    background-color: #003366; /* Fond blanc pour les boutons */
+    border: 2px solid black; /* Bordure blanche pour se fondre dans le fond */
+    color: white; /* Texte bleu */
+    padding: 10px 30px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 20px; /* Coins fortement arrondis */
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2); /* Ombre sous les boutons */
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.4s; /* Transition pour hover */
+    margin-top: 0px;
+    z-index: -0;
+    position:relative;
+    bottom: 57px;
+    margin-right: 100px;
+    margin-left: 80px;
+    left: 0%;
+    transform: translateX(-0%);
+    z-index: 1;
+
+}
+nav button:hover {
+    background-color:  #99ccff; /* Fond bleu au survol */
+    color: white; /* Texte blanc au survol */
+    transform: scale(1.1);
+}

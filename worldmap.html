@@ -14,13 +14,13 @@
     <script src="js/worldmap.js" defer></script>
 </head>
 <body>
-    <div class="banner">
+    <header>
+        <button class="perilpedia-button" onclick="window.location.href='index.html'">PerilPedia</button>
         <nav>
-            <button onclick="window.location.href='index.html'">Home</button>
-            <button onclick="window.location.href='worldmap.html'">World map</button>
-            <button onclick="window.location.href='quiz.html'">Quiz</button>
+            <button onclick="window.location.href='worldmap.html'">Discovery</button>
+            <button onclick="window.location.href='quiz.html'">Quizz</button>
         </nav>
-    </div>
+    </header>
     <div id="map" class="interactive_map"></div>
     <div id="info-panel" class="info-panel">
         <button onclick="closeInfoPanel()" class="close-button">&times;</button>
