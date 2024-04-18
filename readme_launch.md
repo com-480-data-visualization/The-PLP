@@ -1,6 +1,6 @@
 ## To use the website localy:
 
-In your terminal do the folowing:
+In your terminal copy paste the folowing:
 
 - Clone the repo on your computer:
 ```bash
