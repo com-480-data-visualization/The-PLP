@@ -1,4 +1,4 @@
-### To use the website localy:
+## To use the website localy:
 
 In your terminal do the folowing:
 
