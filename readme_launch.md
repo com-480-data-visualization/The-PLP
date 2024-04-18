@@ -2,9 +2,9 @@
 
 In your terminal copy paste the folowing:
 
-- Clone the repo on your computer:
+- Clone the repo on your computer (https link):
 ```bash
-git clone (links on the repo)
+git clone https://github.com/com-480-data-visualization/The-PLP.git
 ```
 - Go in the right folder, write in your treminal:
 ```bash
