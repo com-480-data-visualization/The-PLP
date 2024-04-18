@@ -1,38 +1,68 @@
 
-
+/* Apply transition effects to the map and info panel */
 .interactive_map, .info-panel {
-    transition: width 0.5s; /* Animation douce lors du redimensionnement */
+    transition: width 0.5s ease;
 }
 
 .interactive_map {
-    height: 100vh;
-    width: 100%; /* Pleine largeur initialement */
+    height: 100vh; /* Full height */
+    width: 100%; /* Full width initially */
+    transition: width 5.5s ease; /* Smooth transition for width changes */
+}
+
+nav button {
+    background-color: #003366; /* Fond blanc pour les boutons */
+    border: 2px solid black; /* Bordure blanche pour se fondre dans le fond */
+    color: white; /* Texte bleu */
+    padding: 10px 30px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 20px; /* Coins fortement arrondis */
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2); /* Ombre sous les boutons */
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.4s; /* Transition pour hover */
+    margin-top: 0px;
+    z-index: -0;
+    position:relative;
+    bottom: 57px;
+    margin-right: 100px;
+    margin-left: 80px;
+    left: 0%;
+    transform: translateX(-0%);
+    z-index: 1;
+
+}
+nav button:hover {
+    background-color:  #99ccff; /* Fond bleu au survol */
+    color: white; /* Texte blanc au survol */
+    transform: scale(1.1);
 }
 
 .info-panel {
-    width: 0; /* Panneau caché initialement */
-    height: 100vh;
+    width: 0; /* Initially hidden */
+    height: 100vh; /* Full height */
     position: fixed;
     top: 0;
     right: 0;
-    background-color: black;
+    background-color: #003366; /* Dark blue background */
     overflow: auto;
-    z-index: 1000; /* S'assure qu'il est au-dessus de la carte */
+    z-index: 1000; /* Above the map */
     display: flex;
     flex-direction: column;
+    border: 2px solid black;
+    transition: width 0.5s ease; /* Smooth transition for width changes */
 }
-
-  .info-panel.open {
-        width: 25%; /* Taille du panneau ouvert */
-        color: white; /* Couleur du texte en blanc */
-    }
 
     #info-content {
         padding: 20px; /* Marge intérieure pour l'esthétique */
         color: white; /* Couleur du texte en blanc */
     }
-
-
+  
+.info-panel.open {
+        width: 25%; /* Taille du panneau ouvert */
+        color: white; /* Couleur du texte en blanc */
+        transition: width 0.5s ease;
+    }
 .close-button {
     font-size: 24px; /* Taille de la croix */
     line-height: 24px; /* Alignement vertical de la croix */
@@ -49,6 +79,7 @@
 }
 
 .close-button:hover {
-    background-color: #f8f8f8; /* Changement de couleur de fond au survol pour feedback utilisateur */
+    background-color: #99ccff; /* Changement de couleur de fond au survol pour feedback utilisateur */
 }
+
 

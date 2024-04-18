@@ -16,7 +16,7 @@ function initializeMap() {
         maxBoundsViscosity: 1.0,
         worldCopyJump: false
     });
-    L.esri.basemapLayer('ImageryClarity').addTo(map);
+    L.esri.basemapLayer('Imagery').addTo(map);
     return map;
 }
 
@@ -58,6 +58,7 @@ function addFeatureInteractivity(feature, layer) {
         },
         click: zoomToFeature
     });
+
 }
 
 function highlightFeature(e) {
@@ -121,11 +122,19 @@ function displayCountryInfo(countryName) {
 
 function openInfoPanel() {
     document.getElementById('info-panel').classList.add('open');
+    //document.getElementById('map').style.width = "67%"; // Reduce map width when the panel is open
+    document.getElementById('map').style.marginRight = "33%"; // Shift map to the right when the panel is open
+    if (map) map.invalidateSize(); // Leaflet method to adjust the map size dynamically
 }
 
 function closeInfoPanel() {
+
     document.getElementById('info-panel').classList.remove('open');
+    document.getElementById('map').style.width = "100%";
+    document.getElementById('map').style.marginRight = "0"; // Reset map position when the panel is closed
+    if (map) map.invalidateSize();
 }
+
 
 window.addEventListener('resize', function() {
     if (map) map.invalidateSize();
