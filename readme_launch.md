@@ -24,7 +24,7 @@ python -m http.server
 ## To Use the website on the web use GitHub pages:
 
 ### Step 1: Enable GitHub Pages
-1. **Go to your repository** on GitHub.
+1. **Go to the repository** on GitHub.
 2. Click on the **Settings** tab.
 3. Scroll down to the **GitHub Pages** section. (the repro need to be public)
 4. Under **Source**, select either `master` or `main` branch, depending on the name of your default branch. If your project is in a folder named `docs`, you can select that as well.
