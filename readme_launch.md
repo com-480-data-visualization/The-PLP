@@ -21,7 +21,7 @@ python -m http.server
 
 
 
-## To Use the website generally:
+## To Use the website on the web use GitHub pages:
 
 ### Step 1: Enable GitHub Pages
 1. **Go to your repository** on GitHub.
