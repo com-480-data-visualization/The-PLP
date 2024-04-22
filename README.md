@@ -57,6 +57,7 @@ And for unrelated studies that share our approach to data presentation, we found
 
 [Description of the project](milestone2.pdf)
 
+To try the curent version of our website please follow the first part of the [readme_lauch](https://github.com/com-480-data-visualization/The-PLP/blob/val/readme_launch.md). This .md shows how to run the website locally, this allows to see and test the curent features.
 
 ## Milestone 3 (31st May, 5pm)
 

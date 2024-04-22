@@ -1,12 +1,12 @@
-## To use the website localy:
+## To use the website localy (test of the website for dev and milestone 2):
 
-In your terminal copy paste the folowing:
+In your terminal copy paste the following:
 
 - Clone the repo on your computer (https link):
 ```bash
 git clone https://github.com/com-480-data-visualization/The-PLP.git
 ```
-- Go in the right folder, write in your treminal:
+- Go in the right folder, write in your terminal:
 ```bash
 cd THE-PLP
 ```
@@ -17,6 +17,9 @@ python -m http.server
 - Go on your browser and copy pastre the following: http://localhost:8000/worldmap.html
 
 **You have now acces to the website**
+
+
+
 
 ## To Use the website generally:
 
