@@ -51,13 +51,13 @@ document.addEventListener("DOMContentLoaded", async function() {
     console.log("Options: ", options);
 
     //Only experimental
-    // document.getElementById('quiz-question').innerText = question; const choicesElement = document.getElementById('quiz-choices');
-    // options.forEach((option, index) => {
-    //     const button = document.createElement('button');
-    //     button.innerText = option;
-    //     button.onClick = () => checkAnswer(option, answer);
-    //     choicesElement.appendChild(button);
-    // });
+    document.getElementById('quiz-question').innerText = question; const choicesElement = document.getElementById('quiz-choices');
+    options.forEach((option) => {
+        const button = document.createElement('button');
+        button.innerText = option;
+        button.onClick = () => checkAnswer(option, answer);
+        choicesElement.appendChild(button);
+    });
 });
 
 
