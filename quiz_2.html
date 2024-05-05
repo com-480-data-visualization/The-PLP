@@ -10,6 +10,9 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="https://unpkg.com/esri-leaflet"></script>
     <script src="js/quiz.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="js/quiz_generation.js"></script>
 </head>
 <body>
     <header>
@@ -21,6 +24,11 @@
     </header>
     <div class="content_quiz">
         <div id="map" class="interactive_quiz_map"></div>
+        <div id="quiz-section" class="quiz-section">
+            <div id="quiz-question" class="quiz-question"></div>
+            <div id="quiz-choices" class="quiz-choices"></div>
+            <button id="next-button" class="next-button" onclick="nextQuestion()">Next</button>
+        </div>
         
     </div>
 </body>
