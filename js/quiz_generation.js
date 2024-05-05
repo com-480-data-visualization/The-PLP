@@ -42,24 +42,26 @@ async function loadCountries() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", async function() {
+document.addEventListener("DOMContentLoaded", function() {
     const numberMCQChoices = 4;
-    const [question, answer, options] = await getQuestionAndAnswers(numberMCQChoices);
+    getQuestionAndAnswers(numberMCQChoices).then(([question, answer, options]) => {
+        console.log("Question: ", question);
+        console.log("Answer: ", answer);
+        console.log("Options: ", options);
 
-    console.log("Question: ", question);
-    console.log("Answer: ", answer);
-    console.log("Options: ", options);
-
-    //Only experimental
-    document.getElementById('quiz-question').innerText = question; const choicesElement = document.getElementById('quiz-choices');
-    options.forEach((option) => {
-        const button = document.createElement('button');
-        button.innerText = option;
-        button.onClick = () => checkAnswer(option, answer);
-        choicesElement.appendChild(button);
-    });
+        //Only experimental
+        document.getElementById('question-text').innerText = question;
+        const choicesElement = document.getElementById('quiz-choices');
+        options.forEach((option) => {
+            const optButton = document.createElement('button');
+            optButton.textContent = option;
+            optButton.className = "option-button"
+            optButton.onclick = () => checkAnswer(option, answer);
+            choicesElement.appendChild(optButton);
+        });
+    }).catch(err => console.error("Error getting question and answers ", err));
+    // const [question, answer, options] = await getQuestionAndAnswers(numberMCQChoices);
 });
-
 
 async function getQuestionAndAnswers(numberMCQChoices) {
     // Do not change the order of the lists
@@ -100,7 +102,7 @@ async function getQuestionAndAnswers(numberMCQChoices) {
     if (index === 0 || index === 1) {
         const randomIndex = Math.floor(Math.random() * countriesDeaths.length);
         // console.log("Random Index: ", randomIndex)
-        console.log(typeof countriesDeaths)
+        // console.log(typeof countriesDeaths)
         electedCountry = countriesDeaths[randomIndex];
     }
     else {
@@ -116,7 +118,7 @@ async function getQuestionAndAnswers(numberMCQChoices) {
 
 
 function generateMultipleChoices(correctValue, numberOfOptions, variationPercentage, isInteger = true) {
-    const corrValue = isInteger ? correctValue : correctValue.toFixed(2);
+    const corrValue = isInteger ? correctValue.toString() : correctValue.toFixed(2);
     const options = [corrValue];
     const variation = correctValue * (variationPercentage / 100);
 
@@ -125,7 +127,7 @@ function generateMultipleChoices(correctValue, numberOfOptions, variationPercent
         const sign = Math.random() < 0.5 ? -1 : 1; // Randomly choose positive or negative variation
         if (isInteger) {
             const falseValue = correctValue + sign * Math.floor(Math.random() * variation);
-            options.push(falseValue);
+            options.push(falseValue.toString());
         }
         else {
             const falseValue = correctValue + sign * Math.random() * variation;
@@ -158,5 +160,36 @@ function getCorrectAnswer(country, index) {
             }).catch(err => console.error("Error loading JSON file ", err));
         default:
             throw new Error("Invalid index");
+    }
+}
+
+function nextQuestion() {
+    const numberMCQChoices = 4;
+    getQuestionAndAnswers(numberMCQChoices).then(([question, answer, options]) => {
+        console.log("Question: ", question);
+        console.log("Answer: ", answer);
+        console.log("Options: ", options);
+
+        //Only experimental
+        document.getElementById('question-text').innerText = question;
+        const choicesElement = document.getElementById('quiz-choices');
+        choicesElement.innerHTML = "";
+        options.forEach((option) => {
+            const optButton = document.createElement('button');
+            optButton.textContent = option;
+            optButton.className = "option-button"
+            optButton.onclick = () => checkAnswer(option, answer);
+            choicesElement.appendChild(optButton);
+        });
+    }).catch(err => console.error("Error getting question and answers ", err));
+}
+
+function checkAnswer(selectedOption, correctAnswer) {
+    if (selectedOption == correctAnswer) {
+        alert("Correct Answer :D!")
+        nextQuestion();
+    }
+    else {
+        alert("Try again!")
     }
 }

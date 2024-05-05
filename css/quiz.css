@@ -9,7 +9,7 @@
     color: white;
     background-color:#99ccff;
     position: absolute;
-    z-index: -1;
+    /* z-index: -1; */
     top: 0;
     bottom: 0;
     
@@ -108,13 +108,40 @@ nav button:hover {
 }
 
 
-#quiz-section {
+/* #quiz-section {
     flex: 2;
-    left: 10px
-    /* display: flex;
+    left: 10px;
+    display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: flex-start;
-    margin-top: 20px; */
+    margin-top: 20px;
+} */
+
+#quiz-section {
+    position: absolute;
+    top: 20%; /* Adjust as needed */
+    left: 60%; /* Adjust based on the width of the map */
+    width: 30%; /* Adjust based on your preference */
+    height: 70%; /* Adjust based on your preference */
+    border: 2px solid black;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
 }
 
+#quiz-choices {
+    margin-top: 100px; /* Adjust as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#quiz-choices button {
+    margin-bottom: 10px; /* Adjust spacing between buttons */
+}
+
+#quizz-question {
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: center;
+}
