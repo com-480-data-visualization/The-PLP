@@ -1,5 +1,6 @@
 ## To use the website localy (test of the website for dev and milestone 2):
 
+
 In your terminal copy paste the following:
 
 - Clone the repo on your computer (https link):
@@ -17,7 +18,6 @@ python -m http.server
 - Go on your browser and copy pastre the following: http://localhost:8000/worldmap.html
 
 **You have now acces to the website**
-
 
 
 

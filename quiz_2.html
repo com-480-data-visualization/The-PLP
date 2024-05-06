@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Données sur les armes à feu</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/quiz2.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/esri-leaflet"></script>
+    <script src="js/quiz.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="js/quiz_generation.js" defer></script>
+</head>
+<body>
+    <header>
+        <button class="perilpedia-button" onclick="window.location.href='index.html'">PerilPedia</button>
+        <nav>
+            <button class="discovery-button" onclick="window.location.href='worldmap.html'">Discovery</button>
+            <button class="quiz-button" onclick="window.location.href='quiz.html'">Quiz</button>
+        </nav>
+    </header>
+    <div class="content_quiz">
+        <div id="map" class="interactive_quiz_map"></div>
+        <div id="quiz-section" class="quiz-section">
+            <div class="question-and-score">
+                <div id="score"></div>
+                <div id="result"></div>
+            </div>
+            <div id="quiz-question">
+                <h2>Question</h2>
+                <p id="question-text"></p>
+            </div>
+            <div id="quiz-choices">
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

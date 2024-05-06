@@ -1,0 +1,202 @@
+/* quiz.css - Styles spécifiques pour la page Quiz */
+.content_quiz {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    background-color:#99ccff;
+    position: absolute;
+    top: 0;
+    bottom: 0;    
+}
+
+
+.interactive_quiz_map {
+    transition: width 5.5s ease; /* Smooth transition for width changes */
+    /*: fixed; /* Fixed position to keep the map in the background */
+    width: 50%;
+    height: 70%;
+    border: 2px solid black;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    position: absolute;
+    left: 7%;
+    top: 20%;
+}
+
+
+.quiz-button {
+    background-color: #99ccff;
+}
+
+.quiz-button:hover {
+    background-color:  #99ccff; /* Fond bleu au survol */
+    color: white; /* Texte blanc au survol */
+    transform: scale(1.0);
+}
+
+
+nav button {
+    background-color: #003366; /* Fond blanc pour les boutons */
+    border: 2px solid black; /* Bordure blanche pour se fondre dans le fond */
+    color: white; /* Texte bleu */
+    padding: 10px 30px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 20px; /* Coins fortement arrondis */
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2); /* Ombre sous les boutons */
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.4s; /* Transition pour hover */
+    margin-top: 0px;
+    z-index: -0;
+    position:relative;
+    bottom: 57px;
+    margin-right: 100px;
+    margin-left: 80px;
+    left: 0%;
+    transform: translateX(-0%);
+    z-index: 1;
+
+}
+nav button:hover {
+    background-color:  #99ccff; /* Fond bleu au survol */
+    color: white; /* Texte blanc au survol */
+    transform: scale(1.1);
+}
+
+.quiz-section {
+    position: absolute;
+    top: 20%; /* Adjust as needed */
+    left: 60%; /* Adjust based on the width of the map */
+    width: 30%; /* Adjust based on your preference */
+    height: 70%; /* Adjust based on your preference */
+    border: 2px solid black;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    display: flex; /* Ajouté */
+    justify-content: center; /* Ajouté */
+    align-items: center; /* Ajouté */
+    flex-direction: column; /* Ajouté */
+}
+
+#quiz-choices {
+    margin-top: 20px; /* Adjust as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#quiz-choices button {
+    margin-bottom: 10px; 
+    background-color: #ff0000; 
+    color: white; 
+    border: none;
+    padding: 15px 30px; 
+    font-size: 18px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2); /* Légèrement plus d'ombre pour donner plus de profondeur */
+    position: relative;
+    cursor: pointer; /* Changement du curseur */
+    transition: all 0.3s ease; /* Ajout d'une transition */
+    border: 2px solid white;
+
+}
+
+#quiz-choices button:hover {
+    background-color: #cc0000;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4); /* Ombre plus sombre lorsque le bouton est survolé */
+    transform: translatex(5px); /* Le bouton se déplace légèrement vers le haut lorsqu'il est survolé */
+}
+
+#quiz-choices button:active {
+    background-color: #990000;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5); /* Ombre plus concentrée et plus sombre lorsque le bouton est pressé */
+    transform: translateX(5px); /* Le bouton se déplace légèrement vers le bas lorsqu'il est pressé */
+}
+
+#quiz-choices button::before, #quiz-choices button::after {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+    border-radius: 10px;
+    z-index: 1;
+}
+
+#quiz-choices button::after {
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+}
+
+
+#quiz-question {
+    position: relative;
+    text-align: center;
+}
+
+#quiz-question h2 {
+    font-size: 35px;
+    color:red;
+}
+
+#quiz-question #question-text {
+    font-size: 20px;
+    color: #003366;
+    max-width: calc(100% - 20px); /* Limit text width within quiz section */
+    margin-left: 20px; /* Set left margin to 10px */
+    margin-right: 20px; /* Set right margin to 10px */
+}
+
+
+
+.score-circle {
+    width: 70px;
+    height: 70px;
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    line-height: 70px;
+    margin: 0 auto;
+    font-size: 24px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid white;
+  }
+  
+#quiz-section h1 {
+    color: #003366;
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+#quiz-section p {
+    color: #003366;
+    font-size: 25px;
+    margin-top: 20px;}
+
+
+#restart-button {
+    background-color: #99ccff; /* Fond blanc pour les boutons */
+    border: 2px solid black; /* Bordure blanche pour se fondre dans le fond */
+    color: white; /* Texte bleu */
+    padding: 10px 30px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 20px; /* Coins fortement arrondis */
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2); /* Ombre sous les boutons */
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.4s; /* Transition pour hover */
+    margin-top: 30px;
+ 
+
+    }
+    
+#restart-button:hover {
+        background-color: #003366; /* changer la couleur de fond à passer la souris */
+    }
+    

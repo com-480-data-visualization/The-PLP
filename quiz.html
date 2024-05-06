@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil - Données sur les armes à feu</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/esri-leaflet"></script>
+    <title>Quiz - Données sur les armes à feu</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/quiz.css">
-    <script src="https://d3js.org/d3.v6.min.js"></script>
-    <script src="js/quiz.js" defer></script>
 </head>
 <body>
     <header>
         <button class="perilpedia-button" onclick="window.location.href='index.html'">PerilPedia</button>
         <nav>
-            <button onclick="window.location.href='worldmap.html'">Discovery</button>
-            <button onclick="window.location.href='quiz.html'">Quizz</button>
+            <button class="discovery-button" onclick="window.location.href='worldmap.html'">Discovery</button>
+            <button class="quiz-button" onclick="window.location.href='quiz.html'">Quiz</button>
+            
         </nav>
     </header>
     <div class="content_quiz">
-       Quiz
+        <p>Are you ready to test your knowledge about the most dangerous countries in the world?</p>
+        <div id="map" class="statique_map"></div>
+
     </div>
+    <button id="start-button" onclick="window.location.href='quiz_2.html'">Start</button>
+    
 </body>
 </html>
