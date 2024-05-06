@@ -2,6 +2,8 @@ const gunViolenceTemplate = "What was the rate of violent gun deaths in 2019 in 
 const gunOwnershipPer100Template = "What was the rate of gun ownership per 100 people in {country} in 2024?";
 const violentGunDeathsTotalTemplate = "How many violent gun deaths were there in {country} in 2019?";
 const dangerLevelTemplate = "What is the danger level in {country}?";
+const numberFirearmsCountry = "How many firearms are there in total in {country} in 2024?";
+const numberGunDeathsCountry = "How many gun deaths were there in total in {country} in 2019?";
 
 // These have also a pre-computed answer
 const biggestNumberOfGunDeathsTemplate = "Which country had the highest number of gun deaths in 2019?";
@@ -78,7 +80,9 @@ async function getQuestionAndAnswers(numberMCQChoices) {
     const questions = [
         gunViolenceTemplate,
         violentGunDeathsTotalTemplate,
+        numberGunDeathsCountry,
         gunOwnershipPer100Template,
+        numberFirearmsCountry,
         biggestNumberOfGunDeathsTemplate,
         smallestNumberOfGunDeathsTemplate,
         biggestOwnershipPer100Template,
@@ -93,12 +97,12 @@ async function getQuestionAndAnswers(numberMCQChoices) {
     ]
 
     // const index = Math.floor(Math.random() * questions.length);
-    const index = chooseQuestion(questions.length, 3);
+    const index = chooseQuestion(questions.length, 5);
     // const index = Math.floor(Math.random() * 2);
     const [countriesGuns, countriesDeaths] = await loadCountries();
 
-    if (index > 2) {
-        const answer = static_answers[index - 3]
+    if (index > 4) {
+        const answer = static_answers[index - 5]
         var options = [answer]; 
         let otherCountries;
         do {
@@ -119,7 +123,7 @@ async function getQuestionAndAnswers(numberMCQChoices) {
     let question;
     let answer;
     while (a === 0) {
-        if (index === 0 || index === 1) {
+        if (index <= 2) {
             const randomIndex = Math.floor(Math.random() * countriesDeaths.length);
             electedCountry = countriesDeaths[randomIndex];
         }
@@ -134,7 +138,7 @@ async function getQuestionAndAnswers(numberMCQChoices) {
         }
 
     }
-    const choices = generateMultipleChoices(answer, numberMCQChoices, 50, index === 1);
+    const choices = generateMultipleChoices(answer, numberMCQChoices, 50, index === 1 || index === 2 || index === 4);
     return [question, answer, choices]
 }
 
@@ -178,16 +182,31 @@ function getCorrectAnswer(country, index) {
                 const deaths = data.find(d => d.country === country) || {};
                 return deaths.GunDeathsViolentRatePer100k2019 || null;
             }).catch(err => console.error("Error loading JSON file ", err));
+
         case 1:
             return d3.json('assets/data/gun-deaths-by-country-2024.json').then(data => {
                 const deaths = data.find(d => d.country === country) || {};
                 return deaths.GunDeathsViolentTotal2019 || null;
             }).catch(err => console.error("Error loading JSON file ", err));
-        case 2:
+        
+        case 2: 
+            return d3.json('assets/data/gun-deaths-by-country-2024.json').then(data => {
+                const deaths = data.find(d => d.country === country) || {};
+                return deaths.GunDeathsAllCausesTotal2019 || null;
+            }).catch(err => console.error("Error loading JSON file ", err));
+
+        case 3:
             return d3.json('assets/data/gun-ownership-by-country-2024.json').then(data => {
                 const ownership = data.find(d => d.country === country) || {};
                 return ownership.gunOwnershipByCountry_per100 || null;
             }).catch(err => console.error("Error loading JSON file ", err));
+
+        case 4:
+            return d3.json('assets/data/gun-ownership-by-country-2024.json').then(data => {
+                const ownership = data.find(d => d.country === country) || {};
+                return ownership.gunOwnershipByCountry_firearms || null;
+            }).catch(err => console.error("Error loading JSON file ", err));
+
         default:
             throw new Error("Invalid index");
     }
