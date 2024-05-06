@@ -178,18 +178,38 @@ function nextQuestion() {
             const optButton = document.createElement('button');
             optButton.textContent = option;
             optButton.className = "option-button"
-            optButton.onclick = () => checkAnswer(option, answer);
+            optButton.onclick = () => {
+                if (answer) {
+                    checkAnswer(option, answer);
+                } else {
+                    console.error("Answer is empty");
+                }
+            };
+
+
             choicesElement.appendChild(optButton);
         });
     }).catch(err => console.error("Error getting question and answers ", err));
 }
-
+let nb_question =6
+let questionCount = nb_question;
+let correctAnswers = 0;
 function checkAnswer(selectedOption, correctAnswer) {
-    if (selectedOption == correctAnswer) {
-        alert("Correct Answer :D!")
-        nextQuestion();
+    questionCount--;
+    if (selectedOption === correctAnswer) {
+        correctAnswers++;
     }
-    else {
-        alert("Try again!")
+
+    if (questionCount > 0) {
+        nextQuestion();
+    } else {
+        // Effacer le contenu du quiz
+        if (questionCount <= 0) {
+            const scoreDisplay = `<div class="score-circle">${correctAnswers}/${nb_question}</div>`;
+            document.getElementById('quiz-section').innerHTML = '<h1>Quiz Over!</h1> <p>Your score:</p>' + scoreDisplay + '<button id="restart-button" onclick="window.location.href=\'quiz_2.html\'">Restart</button>';
+
+        }
+        
     }
 }
+
