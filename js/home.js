@@ -11,7 +11,8 @@ function initializeMap() {
         zoom: 2,
         maxBounds: [[-90, -180], [90, 180]],  // Limite pour ne pas "défiler à l'infini"
         maxBoundsViscosity: 1.0,  // Empêche l'utilisateur de se déplacer hors des limites
-        worldCopyJump: false // Empêche la carte de se "boucler" lors du défilement
+        worldCopyJump: false, // Empêche la carte de se "boucler" lors du défilement
+        zoomControl: false, // Hide the zoom control
     });
 
     // Ajout du fond de carte

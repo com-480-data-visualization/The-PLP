@@ -23,6 +23,7 @@ header {
     width: 100%;
     height: 30px;
     border: 2px solid black; /* Contour noir */
+    z-index: 1; 
     
 
 }

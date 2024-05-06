@@ -3,17 +3,20 @@
     width: 100%;
     flex-grow: 1;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* Modifié */
+    justify-content: center; /* Modifié */
     font-size: 24px;
-    color: white;
     background-color:#99ccff;
-    position: absolute;
-    /* z-index: -1; */
-    top: 0;
-    bottom: 0;
-    
+    position: relative; /* Modifié */
 }
+
+.content_quiz p{
+    font-size: 25px; /* Modifié */
+    color: #000000; /* Modifié */
+    position: absolute;
+    top: 40px; /* Modifié */
+}
+
 
 #start-button {
     position: fixed;
@@ -41,31 +44,6 @@
     border-color: red; /* Bordure rouge au survol */
 }
 
-
-
-
-
-.content_quiz p {
-        max-width: 80%;
-        text-align: center;
-        color: rgb(3, 67, 3);
-        position: absolute;
-        top: 50px; 
-    }
-
-
-.interactive_quiz_map {
-    transition: width 5.5s ease; /* Smooth transition for width changes */
-    /*: fixed; /* Fixed position to keep the map in the background */
-    width: 50%;
-    height: 70%;
-    border: 2px solid black;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    position: absolute;
-    left: 7%;
-    top: 20%;
-}
 
 
 .quiz-button {
@@ -105,43 +83,4 @@ nav button:hover {
     background-color:  #99ccff; /* Fond bleu au survol */
     color: white; /* Texte blanc au survol */
     transform: scale(1.1);
-}
-
-
-/* #quiz-section {
-    flex: 2;
-    left: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: flex-start;
-    margin-top: 20px;
-} */
-
-#quiz-section {
-    position: absolute;
-    top: 20%; /* Adjust as needed */
-    left: 60%; /* Adjust based on the width of the map */
-    width: 30%; /* Adjust based on your preference */
-    height: 70%; /* Adjust based on your preference */
-    border: 2px solid black;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-}
-
-#quiz-choices {
-    margin-top: 100px; /* Adjust as needed */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#quiz-choices button {
-    margin-bottom: 10px; /* Adjust spacing between buttons */
-}
-
-#quizz-question {
-    margin-top: 20px;
-    font-size: 20px;
-    text-align: center;
 }

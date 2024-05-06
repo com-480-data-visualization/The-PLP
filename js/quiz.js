@@ -12,10 +12,11 @@ document.addEventListener("DOMContentLoaded", function() {
 function initializeMap() {
     var map = L.map('map', {
         center: [20, 0],
-        zoom: 2,
+        zoom: 1.4,
         maxBounds: [[-90, -180], [90, 180]],
         maxBoundsViscosity: 1.0,
-        worldCopyJump: false
+        worldCopyJump: false,
+        zoomControl: false, // Hide the zoom control
     });
 
     L.esri.basemapLayer('Imagery').addTo(map);
@@ -24,6 +25,6 @@ function initializeMap() {
 
 function addMapBounds(map) {
     map.on('drag', () => {
-        map.panInsideBounds([[-90, -180], [90, 180]], { animate: false });
+        map.panInsideBounds([[-90, -180], [90, 180]], { animate: True });
     });
 }
