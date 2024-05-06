@@ -1,16 +1,30 @@
-Pour Utiliser le siteweb en locale:
+## To use the website localy (test of the website for dev and milestone 2):
 
-- aller sur un terminal et aller jusque au fichier du site web
-- copy paste dan sle terminal: 
+
+In your terminal copy paste the following:
+
+- Clone the repo on your computer (https link):
+```bash
+git clone https://github.com/com-480-data-visualization/The-PLP.git
+```
+- Go in the right folder, write in your terminal:
+```bash
+cd THE-PLP
+```
+-Write the following in your terminal to launch your server:
 ```bash
 python -m http.server
 ```
-- aller sur le navighateur sur : http://localhost:8000/index.html
+- Go on your browser and copy pastre the following: http://localhost:8000/worldmap.html
+
+**You have now acces to the website**
 
 
+
+## To Use the website on the web use GitHub pages:
 
 ### Step 1: Enable GitHub Pages
-1. **Go to your repository** on GitHub.
+1. **Go to the repository** on GitHub.
 2. Click on the **Settings** tab.
 3. Scroll down to the **GitHub Pages** section. (the repro need to be public)
 4. Under **Source**, select either `master` or `main` branch, depending on the name of your default branch. If your project is in a folder named `docs`, you can select that as well.
@@ -24,13 +38,5 @@ https://<username>.github.io/<repository>/
 ```
 You can find this URL in the GitHub Pages section of your repository settings after you enable it.
 
-### Step 5: Custom Domain (Optional)
-If you want to use a custom domain with your GitHub Pages website:
-1. Go to the repository Settings.
-2. Navigate to the GitHub Pages section.
-3. Enter your custom domain in the **Custom domain** field and save.
-
-You will need to configure your DNS settings with your domain registrar to point to GitHub's servers. More details can be found in GitHub's documentation on this topic.
-
-### Step 6: Continuous Deployment
+### Step 3: Continuous Deployment
 Every time you push changes to your repository (to the branch you selected for GitHub Pages), GitHub automatically rebuilds your website and the changes will go live within minutes. This makes updating your site as simple as pushing updates to your GitHub repository.
