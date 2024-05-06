@@ -101,6 +101,7 @@ function zoomToFeature(e) {
 }
 
 function displayCountryInfo(countryName) {
+    
     d3.json('assets/data/gun-ownership-by-country-2024.json').then(ownershipData => {
         const ownership = ownershipData.find(d => d.country === countryName) || {};
         d3.json('assets/data/gun-deaths-by-country-2024.json').then(deathData => {
