@@ -26,6 +26,16 @@ function shuffle(arr) {
     return arr.sort(() => Math.random() - 0.5);
 }
 
+function chooseQuestion(num_questions, lastTemplateIndex) {
+    const randomNumber = Math.random();
+    if (randomNumber < 0.5) {
+        return Math.floor(Math.random() * lastTemplateIndex);
+    }
+    else {
+        return Math.floor(Math.random() * num_questions);
+    }
+}
+
 async function loadCountries() {
     try {
         const countriesGunsData = await d3.json('assets/data/gun-ownership-by-country-2024.json')
@@ -45,9 +55,9 @@ async function loadCountries() {
 document.addEventListener("DOMContentLoaded", function() {
     const numberMCQChoices = 4;
     getQuestionAndAnswers(numberMCQChoices).then(([question, answer, options]) => {
-        console.log("Question: ", question);
-        console.log("Answer: ", answer);
-        console.log("Options: ", options);
+        // console.log("Question: ", question);
+        // console.log("Answer: ", answer);
+        // console.log("Options: ", options);
 
         //Only experimental
         document.getElementById('question-text').innerText = question;
@@ -82,14 +92,20 @@ async function getQuestionAndAnswers(numberMCQChoices) {
         smallestOwnershipPer100Answer
     ]
 
-    const index = Math.floor(Math.random() * questions.length);
+    // const index = Math.floor(Math.random() * questions.length);
+    const index = chooseQuestion(questions.length, 3);
+    // const index = Math.floor(Math.random() * 2);
     const [countriesGuns, countriesDeaths] = await loadCountries();
 
     if (index > 2) {
         const answer = static_answers[index - 3]
-        var options = [answer];
-        //TODO not working
-        const otherCountries = _.sampleSize(countriesGuns, numberMCQChoices - 1);
+        var options = [answer]; 
+        let otherCountries;
+        do {
+            otherCountries = _.sampleSize(countriesGuns, numberMCQChoices - 1);
+        }
+        while (otherCountries.includes(answer));
+        // const otherCountries = _.sampleSize(countriesGuns, numberMCQChoices - 1);
 
         options = options.concat(otherCountries);
     
@@ -99,43 +115,57 @@ async function getQuestionAndAnswers(numberMCQChoices) {
     } 
 
     var electedCountry = null;
-    if (index === 0 || index === 1) {
-        const randomIndex = Math.floor(Math.random() * countriesDeaths.length);
-        // console.log("Random Index: ", randomIndex)
-        // console.log(typeof countriesDeaths)
-        electedCountry = countriesDeaths[randomIndex];
-    }
-    else {
-        electedCountry = countriesGuns[Math.floor(Math.random() * countriesGuns.length)];
-    }
+    let a = 0;
+    let question;
+    let answer;
+    while (a === 0) {
+        if (index === 0 || index === 1) {
+            const randomIndex = Math.floor(Math.random() * countriesDeaths.length);
+            electedCountry = countriesDeaths[randomIndex];
+        }
+        else {
+            electedCountry = countriesGuns[Math.floor(Math.random() * countriesGuns.length)];
+        }
 
-    const question = questions[index].replace("{country}", electedCountry);
-    const answer = await getCorrectAnswer(electedCountry, index);
+        question = questions[index].replace("{country}", electedCountry);
+        answer = await getCorrectAnswer(electedCountry, index);
+        if (answer !== null) {
+            a = 1;
+        }
+
+    }
     const choices = generateMultipleChoices(answer, numberMCQChoices, 50, index === 1);
     return [question, answer, choices]
 }
-
 
 
 function generateMultipleChoices(correctValue, numberOfOptions, variationPercentage, isInteger = true) {
     const corrValue = isInteger ? correctValue.toString() : correctValue.toFixed(2);
     const options = [corrValue];
     const variation = correctValue * (variationPercentage / 100);
+    let curr_variation = variation;
 
     // Generate false options
-    for (let i = 0; i < numberOfOptions - 1; i++) {
+    while (options.length < numberOfOptions) {
         const sign = Math.random() < 0.5 ? -1 : 1; // Randomly choose positive or negative variation
+        let falseValue;
         if (isInteger) {
-            const falseValue = correctValue + sign * Math.floor(Math.random() * variation);
-            options.push(falseValue.toString());
+            falseValue = correctValue + sign * Math.floor(Math.random() * curr_variation);
+            falseValue = falseValue.toString();
         }
         else {
-            const falseValue = correctValue + sign * Math.random() * variation;
-            options.push(falseValue.toFixed(2)); // Round to 2 decimal places
+            falseValue = correctValue + sign * Math.random() * curr_variation;
+            falseValue = falseValue.toFixed(2);
+        }
+
+        if (!options.includes(falseValue)) {
+            options.push(falseValue);
+        }
+        else {
+            curr_variation = curr_variation * 1.5;
         }
     }
 
-    console.log("Options", options)
     const shuffledOptions = shuffle(options);
 
     return shuffledOptions;
@@ -196,7 +226,7 @@ let questionCount = nb_question;
 let correctAnswers = 0;
 function checkAnswer(selectedOption, correctAnswer) {
     questionCount--;
-    if (selectedOption === correctAnswer) {
+    if (selectedOption == correctAnswer) {
         correctAnswers++;
     }
 
