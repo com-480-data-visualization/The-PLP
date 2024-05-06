@@ -97,10 +97,12 @@ nav button:hover {
     padding: 15px 30px; 
     font-size: 18px;
     border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Légèrement plus d'ombre pour donner plus de profondeur */
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2); /* Légèrement plus d'ombre pour donner plus de profondeur */
     position: relative;
     cursor: pointer; /* Changement du curseur */
     transition: all 0.3s ease; /* Ajout d'une transition */
+    border: 2px solid white;
+
 }
 
 #quiz-choices button:hover {
