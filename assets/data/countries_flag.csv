@@ -1,4 +1,4 @@
-country,images_file,image_url,alpha-2,alpha-3,country-code,iso_3166-2,region,sub-region,intermediate-region,region-code,sub-region-code,intermediate-region-code
+country,images_file,image_url,alpha2,alpha3,country-code,iso_3166-2,region,sub-region,intermediate-region,region-code,sub-region-code,intermediate-region-code
 Afghanistan,Flag_of_Afghanistan.svg,https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Afghanistan.svg,AF,AFG,4.0,ISO 3166-2:AF,Asia,Southern Asia,,142.0,34.0,
 Albania,Flag_of_Albania.svg,https://upload.wikimedia.org/wikipedia/commons/3/36/Flag_of_Albania.svg,AL,ALB,8.0,ISO 3166-2:AL,Europe,Southern Europe,,150.0,39.0,
 Algeria,Flag_of_Algeria.svg,https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg,DZ,DZA,12.0,ISO 3166-2:DZ,Africa,Northern Africa,,2.0,15.0,
