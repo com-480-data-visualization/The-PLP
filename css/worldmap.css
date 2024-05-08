@@ -92,4 +92,7 @@ nav button:hover {
     background-color: #99ccff; /* Changement de couleur de fond au survol pour feedback utilisateur */
 }
 
-
+.info-content-item.highlighted {
+    font-size: 24px;
+    color: red;
+}

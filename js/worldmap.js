@@ -100,22 +100,22 @@ function zoomToFeature(e) {
     displayCountryInfo(e.target.feature.properties.ADMIN);
 }
 
+
 function displayCountryInfo(countryName) {
-    
-    d3.json('assets/data/gun-ownership-by-country-2024.json').then(ownershipData => {
-        const ownership = ownershipData.find(d => d.country === countryName) || {};
-        d3.json('assets/data/gun-deaths-by-country-2024.json').then(deathData => {
-            const deaths = deathData.find(d => d.country === countryName) || {};
-            const infoHtml = `
-                <h2>${countryName}</h2>
-                <div>Number of firearms in circulation: ${ownership.gunOwnershipByCountry_firearms || 'Data not available'}</div>
-                <div>Ownership rate per 100 people: ${ownership.gunOwnershipByCountry_per100 || 'Data not available'}</div>
-                <div>Gun-related deaths (Total 2024): ${deaths.GunDeathsAllCausesTotal2019 || 'Data not available'}</div>
-                <div>Gun-related death rate (per 100k, 2024): ${deaths.GunDeathsViolentRatePer100k2019 || 'Data not available'}</div>
-            `;
-            document.getElementById('info-content').innerHTML = infoHtml;
-            openInfoPanel();
-        });
+    d3.csv('assets/data/full.csv').then(data => {
+        const countryData = data.find(d => d.country === countryName) || {};
+        const infoHtml = `
+        <div class="info-header">
+            <h2 class="country-name">${countryName}</h2>
+        </div>
+        <div class="info-content-item highlighted"> ${countryData.Initiale || 'Data not available'}</div>
+        <div class="info-content-item">Number of firearms in circulation: ${countryData.gunOwnershipByCountry_firearms || 'Data not available'}</div>
+            <div class="info-content-item">Ownership rate per 100 people: ${countryData.gunOwnershipByCountry_per100 || 'Data not available'}</div>
+            <div class="info-content-item">Gun-related deaths (Total 2024): ${countryData.GunDeathsAllCausesTotal2019 || 'Data not available'}</div>
+            <div class="info-content-item">Gun-related death rate (per 100k, 2024): ${countryData.GunDeathsViolentRatePer100k2019 || 'Data not available'}</div>
+        `;
+        document.getElementById('info-content').innerHTML = infoHtml;
+        openInfoPanel();
     }).catch(error => {
         console.error('Error loading the data: ', error);
     });
@@ -123,7 +123,6 @@ function displayCountryInfo(countryName) {
 
 function openInfoPanel() {
     document.getElementById('info-panel').classList.add('open');
-    //document.getElementById('map').style.width = "67%"; // Reduce map width when the panel is open
     document.getElementById('map').style.marginRight = "33%"; // Shift map to the right when the panel is open
     if (map) map.invalidateSize(); // Leaflet method to adjust the map size dynamically
 }
