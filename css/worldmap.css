@@ -93,6 +93,8 @@ nav button:hover {
 }
 
 .info-content-item.highlighted {
-    font-size: 24px;
-    color: red;
+    font-size: 18px;
+    color: grey;
+    font-family: 'Georgia', sans-serif;
+    font-weight: bold;
 }
