@@ -102,20 +102,20 @@ function zoomToFeature(e) {
 
 
 function displayCountryInfo(countryName) {
-    d3.csv('assets/data/full.csv').then(data => {
+    d3.csv('assets/data/full_VF.csv').then(data => {
         const countryData = data.find(d => d.country === countryName) || {};
 
         const flagUrl = countryData.image_url;
         const infoHtml = `
         <div class="info-header">
         <h2>${countryName} <img src="${flagUrl}" alt="flag" style="height: 1.5em;"></h2>
-
         </div>
-        <div class="info-content-item highlighted"> ${countryData.alpha2 || 'Data not available'}</div>
+
+        <div class="info-content-item highlighted"> ${countryData.Capital || 'Data not available'}</div>
         <div class="info-content-item">Number of firearms in circulation: ${countryData.gunOwnershipByCountry_firearms || 'Data not available'}</div>
-            <div class="info-content-item">Ownership rate per 100 people: ${countryData.gunOwnershipByCountry_per100 || 'Data not available'}</div>
-            <div class="info-content-item">Gun-related deaths (Total 2024): ${countryData.GunDeathsAllCausesTotal2019 || 'Data not available'}</div>
-            <div class="info-content-item">Gun-related death rate (per 100k, 2024): ${countryData.GunDeathsViolentRatePer100k2019 || 'Data not available'}</div>
+        <div class="info-content-item">Ownership rate per 100 people: ${countryData.gunOwnershipByCountry_per100 || 'Data not available'}</div>
+        <div class="info-content-item">Gun-related deaths (Total 2024): ${countryData.GunDeathsAllCausesTotal2019 || 'Data not available'}</div>
+        <div class="info-content-item">Gun-related death rate (per 100k, 2024): ${countryData.GunDeathsViolentRatePer100k2019 || 'Data not available'}</div>
         `;
         document.getElementById('info-content').innerHTML = infoHtml;
         openInfoPanel();
