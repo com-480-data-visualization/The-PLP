@@ -1,4 +1,5 @@
 var map;  // Variable globale pour la carte
+let showDangerosity = false;
 
 document.addEventListener("DOMContentLoaded", function() {
     map = initializeMap();
@@ -11,10 +12,11 @@ function initializeMap() {
     if (map) return map;  // Prévenir l'initialisation multiple de la carte
     map = L.map('map', {
         center: [20, 0],
-        zoom: 2,
+        zoom: 2.17,
+        minZoom: 2.17,  // This line was added
         maxBounds: [[-90, -180], [90, 180]],
-        maxBoundsViscosity: 1.0,
-        worldCopyJump: false
+        maxBoundsViscosity: 0.2,
+        worldCopyJump: true
     });
     L.esri.basemapLayer('Imagery').addTo(map);
     return map;
@@ -26,23 +28,36 @@ function addMapBounds(map) {
     });
 }
 
+
 function loadGeoJSON(map) {
     d3.json('assets/data/countries.geojson').then(function(geojsonData) {
-        const ownershipRates = {};  // Placeholder for dynamic data
-        L.geoJSON(geojsonData, {
-            style: function(feature) {
-                const rate = ownershipRates[feature.properties.ADMIN] || 0;
-                return {
-                    color: 'grey',
-                    weight: 1,
-                    fillColor: getColorForDangerRate(rate),
-                    fillOpacity: 0.0  // Initialement transparent
-                };
-            },
+
+        const countriesLayer = L.geoJSON(geojsonData, {
+            style: featureStyle,
             onEachFeature: addFeatureInteractivity
         }).addTo(map);
+
+        document.getElementById("btn-danger").addEventListener("click", function() {
+            showDangerosity = !showDangerosity;
+            countriesLayer.eachLayer(layer => {
+                layer.setStyle(featureStyle(layer.feature));
+            });
+        });
     });
 }
+
+function featureStyle(feature) {
+    const countryName = feature.properties.ADMIN;
+    const rate = showDangerosity ? (countryDataMap.get(countryName) || 0) : 0;
+
+    return {
+        color: 'grey',
+        weight: 1,
+        fillColor: getColorForDangerRate(rate),
+        fillOpacity: showDangerosity ? (rate ? 0.7 : 0) : 0
+    };
+}
+
 
 function addFeatureInteractivity(feature, layer) {
     layer.on({
@@ -60,19 +75,6 @@ function addFeatureInteractivity(feature, layer) {
     });
 
 }
-
-function highlightFeature(e) {
-    var layer = e.target;
-    var countryName = layer.feature.properties.ADMIN;
-    var dangerRate = countryDataMap.get(countryName) || 0;
-    layer.setStyle({
-        weight: 3,
-        color: 'grey',
-        fillColor: getColorForDangerRate(dangerRate),
-        fillOpacity: dangerRate ? 0.7 : 0
-    });
-}
-
 function showCountryName(e) {
     var layer = e.target;
     var countryName = layer.feature.properties.ADMIN;
@@ -86,13 +88,32 @@ function showCountryName(e) {
     layer.bindPopup(popup);
 }
 
-function resetHighlight(e) {
-    e.target.setStyle({
-        weight: 1,
+function highlightFeature(e) {
+    var layer = e.target;
+    var countryName = layer.feature.properties.ADMIN;
+    var dangerRate = countryDataMap.get(countryName) || 0;
+    var fillOpacity = showDangerosity ? 0.7 : dangerRate ? 0.7 : 0;
+    layer.setStyle({
+        weight: 3,
         color: 'grey',
-        fillOpacity: 0
+        fillColor: getColorForDangerRate(dangerRate),
+        fillOpacity: fillOpacity
     });
 }
+
+function resetHighlight(e) {
+    var layer = e.target;
+    var countryName = layer.feature.properties.ADMIN;
+    var dangerRate = countryDataMap.get(countryName) || 0;
+    var fillOpacity = showDangerosity ? (dangerRate ? 0.7 : 0) : 0;
+    layer.setStyle({
+        weight: 1,
+        color: 'grey',
+        fillColor: getColorForDangerRate(dangerRate),
+        fillOpacity: fillOpacity
+    });
+}
+
 
 function zoomToFeature(e) {
     var map = e.target._map;
@@ -137,11 +158,6 @@ function closeInfoPanel() {
     document.getElementById('map').style.marginRight = "0"; // Reset map position when the panel is closed
     if (map) map.invalidateSize();
 }
-
-
-window.addEventListener('resize', function() {
-    if (map) map.invalidateSize();
-});
 
 // Échelle de couleurs et données par pays
 let countryDataMap = new Map();

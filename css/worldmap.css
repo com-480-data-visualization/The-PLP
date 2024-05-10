@@ -96,3 +96,23 @@ nav button:hover {
     font-size: 24px;
     color: red;
 }
+
+
+#map-overlay {
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    z-index: 9999;  
+}
+
+#btn-danger {
+    background-color: #f44336; /* Red */
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
