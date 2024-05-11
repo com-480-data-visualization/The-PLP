@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     addMapBounds(map);
     loadGeoJSON(map);
     loadData();  // Charger les données de dangerosité des pays
+    console.log(countryDataMap);
 });
 
 function initializeMap() {
