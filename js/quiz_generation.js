@@ -40,11 +40,12 @@ function chooseQuestion(num_questions, lastTemplateIndex) {
 
 async function loadCountries() {
     try {
-        const countriesGunsData = await d3.json('assets/data/gun-ownership-by-country-2024.json')
+        const countriesGunsData = await d3.json('../assets/data/basic_dataset/gun-ownership-by-country-2024.json')
         const countriesGunsSet = new Set(countriesGunsData.map(d => d.country));
         const countriesGuns = Array.from(countriesGunsSet);
 
-        const countriesDeathsData = await d3.json('assets/data/gun-deaths-by-country-2024.json')
+        
+        const countriesDeathsData = await d3.json('../assets/data/basic_dataset/gun-deaths-by-country-2024.json')
         const countriesDeathsSet = new Set(countriesDeathsData.map(d => d.country));
         const countriesDeaths = Array.from(countriesDeathsSet);
 
@@ -174,43 +175,38 @@ function generateMultipleChoices(correctValue, numberOfOptions, variationPercent
 
     return shuffledOptions;
 }
+// Définir un tableau d'attributs pour chaque index
+const attributes = [
+    'GunDeathsViolentRatePer100k2019', 
+    'GunDeathsViolentTotal2019', 
+    'GunDeathsAllCausesTotal2019', 
+    'gunOwnershipByCountry_per100', 
+    'gunOwnershipByCountry_firearms'
+];
 
+// Charger les données une fois au début
+let deathsData, ownershipData;
+
+d3.json('../assets/data/basic_dataset/gun-deaths-by-country-2024.json')
+    .then(data => { deathsData = data; })
+    .catch(err => console.error("Error loading JSON file ", err));
+
+d3.json('../assets/data/basic_dataset/gun-ownership-by-country-2024.json')
+    .then(data => { ownershipData = data; })
+    .catch(err => console.error("Error loading JSON file ", err));
+
+// La fonction simplifiée
 function getCorrectAnswer(country, index) {
-    switch (index) {
-        case 0:
-            return d3.json('assets/data/gun-deaths-by-country-2024.json').then(data => {
-                const deaths = data.find(d => d.country === country) || {};
-                return deaths.GunDeathsViolentRatePer100k2019 || null;
-            }).catch(err => console.error("Error loading JSON file ", err));
-
-        case 1:
-            return d3.json('assets/data/gun-deaths-by-country-2024.json').then(data => {
-                const deaths = data.find(d => d.country === country) || {};
-                return deaths.GunDeathsViolentTotal2019 || null;
-            }).catch(err => console.error("Error loading JSON file ", err));
-        
-        case 2: 
-            return d3.json('assets/data/gun-deaths-by-country-2024.json').then(data => {
-                const deaths = data.find(d => d.country === country) || {};
-                return deaths.GunDeathsAllCausesTotal2019 || null;
-            }).catch(err => console.error("Error loading JSON file ", err));
-
-        case 3:
-            return d3.json('assets/data/gun-ownership-by-country-2024.json').then(data => {
-                const ownership = data.find(d => d.country === country) || {};
-                return ownership.gunOwnershipByCountry_per100 || null;
-            }).catch(err => console.error("Error loading JSON file ", err));
-
-        case 4:
-            return d3.json('assets/data/gun-ownership-by-country-2024.json').then(data => {
-                const ownership = data.find(d => d.country === country) || {};
-                return ownership.gunOwnershipByCountry_firearms || null;
-            }).catch(err => console.error("Error loading JSON file ", err));
-
-        default:
-            throw new Error("Invalid index");
+    if (index < 0 || index >= attributes.length) {
+        throw new Error("Invalid index");
     }
+
+    let data = (index < 3) ? deathsData : ownershipData;  // Choisissez le bon ensemble de données
+    
+    const record = data.find(d => d.country === country) || {};
+    return record[attributes[index]] || null;
 }
+
 
 function nextQuestion() {
     const numberMCQChoices = 4;
