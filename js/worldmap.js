@@ -81,6 +81,7 @@ function showCountryName(e) {
     var layer = e.target;
     var countryName = layer.feature.properties.ADMIN;
     var dangerRate = countryDataMap.get(countryName) || 0;
+    console.log(dangerRate);
     var color = getColorForDangerRate(dangerRate);
     var popupContent = `<div>${countryName}<br>Danger Level: ${dangerRate ? `<span style="color:${color};">${dangerRate.toFixed(2)}</span>` : 'Data not available'}</div>`;
     var popup = L.popup({ autoClose: false, closeButton: false })
