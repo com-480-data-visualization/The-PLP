@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     addMapBounds(map);
     loadGeoJSON(map);
     loadData();  // Charger les données de dangerosité des pays
-    console.log(countryDataMap);
+   
 });
 
 function initializeMap() {
@@ -81,7 +81,6 @@ function showCountryName(e) {
     var layer = e.target;
     var countryName = layer.feature.properties.ADMIN;
     var dangerRate = countryDataMap.get(countryName) || 0;
-    console.log(dangerRate);
     var color = getColorForDangerRate(dangerRate);
     var popupContent = `<div>${countryName}<br>Danger Level: ${dangerRate ? `<span style="color:${color};">${dangerRate.toFixed(2)}</span>` : 'Data not available'}</div>`;
     var popup = L.popup({ autoClose: false, closeButton: false })
@@ -169,7 +168,7 @@ const colorScale = d3.scaleLinear()
     .range(['green', 'rgb(205, 187, 50)', 'orange', 'red', 'purple', 'darkred', 'black']);
 
 function loadData() {
-    d3.csv('../assets/data/basic_dataset/gun-deaths-by-country-2024.json').then(data => {
+    d3.json('../assets/data/basic_dataset/gun-deaths-by-country-2024.json').then(data => {
         data.forEach(item => {
             countryDataMap.set(item.country, item.GunDeathsViolentRatePer100k2019);
         });
