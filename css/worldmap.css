@@ -41,6 +41,7 @@ nav button {
     transform: translateX(-0%);
     z-index: 1;
 
+
 }
 nav button:hover {
     background-color:  #99ccff; /* Fond bleu au survol */
@@ -92,10 +93,44 @@ nav button:hover {
     background-color: #99ccff; /* Changement de couleur de fond au survol pour feedback utilisateur */
 }
 
-.info-content-item.highlighted {
-    font-size: 24px;
-    color: red;
+.info-content-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
 }
+
+
+.info-content-item.name {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    font-size: 30px;
+    color: red;
+    width: 100%;
+
+}
+.danger-box {
+    background-color: white;
+    display: inline-block;
+}
+
+
+
+.info-header h2 {
+    position: absolute;
+    top: 30px;
+    left: 10px;
+}
+
+.info-header img {
+    position: absolute;
+    right: 10px;
+    width: 50%;
+
+}
+
 
 
 

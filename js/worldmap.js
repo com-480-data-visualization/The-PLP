@@ -135,37 +135,50 @@ function displayCountryInfo(countryName) {
         var dangerRate = countryDataMap.get(countryName) || 0;
         var fillColor = getColorForDangerRate(dangerRate)
         var danger = dangerLevelScale(dangerRate)
-
-
-        console.log(countryData.population.toLocaleString('de-CH'));
         const infoHtml = `
         <div class="info-header">
-            <h2>${countryName} <img src="${flagUrl}" alt="flag" style="height: 3em; margin-right: -100px;"></h2>
+            <h2>${countryData.alpha2}</h2>
+            <img src="${flagUrl}" alt="flag">
         </div>
-        <div class="info-content-item highlighted">
-        ${countryData.alpha2 || 'Data not available'}
-        </div>
-        <div class="info-content-item">
-        Population: ${countryData.population || 'Data not available'}
+        <div class="info-content-item name">
+            ${countryName|| 'Data not available'}
         </div>
         <div class="info-content-item">
-            Capital: ${countryData.CAPITALE || 'Data not available'}
+            <span class="label">Capital:</span>
+            <span class="value" style="float: right;">${countryData.CAPITALE   || 'Data not available'}</span>
         </div>
         <div class="info-content-item">
-            Dangerosity: <span style="color: ${fillColor}">${danger || 'Data not available'}</span>
+            <span class="label">Population:</span>
+            <span class="value" style="float: right;">${parseInt(countryData.population).toLocaleString('de-CH')  || 'Data not available'}</span>
+        </div>
+        <div class="info-content-item">
+            <span class="label">Danger level:</span>
+            <div class="danger-box">
+                <span class="value" style="padding: 10px;border: 5px solid ${fillColor}; float: right; color: ${fillColor}">${danger || 'Data not available'}</span>
+            </div>
+        </div>
+
+
+        <div class="info-content-item">
+            <span class="label">Guns death per 100k person:</span>
+            <span class="value" style="float: right;">${countryData.GunDeathsViolentRatePer100k2019  || 'Data not available'}</span>
+        </div>
+        <div class="info-content-item">
+            <span class="label">Number of firearms:</span>
+            <span class="value" style="float: right;">${parseInt(countryData.gunOwnershipByCountry_firearms).toLocaleString('de-CH') || 'Data not available'}</span>
+        </div>
+        <div class="info-content-item">
+            <span class="label">Ownership rate per 100K people:</span>
+            <span class="value" style="float: right;">${countryData.gunOwnershipByCountry_per100 || 'Data not available'}</span>
+        </div>
+        <div class="info-content-item">
+            <span class="label">Gun-related deaths:</span>
+            <span class="value" style="float: right;">${parseInt(countryData.GunDeathsAllCausesTotal2019).toLocaleString('de-CH') || 'Data not available'}</span>
         </div>
     
-        <div class="info-content-item">
-        Number of firearms in circulation: ${countryData.gunOwnershipByCountry_firearms || 'Data not available'}
-        </div>
-        <div class="info-content-item">
-        Ownership rate per 100 people: ${countryData.gunOwnershipByCountry_per100 || 'Data not available'}
-        </div>
-        <div class="info-content-item">
-        Gun-related deaths: ${countryData.GunDeathsAllCausesTotal2019 || 'Data not available'}
-        </div>
         `;
         document.getElementById('info-content').innerHTML = infoHtml;
+
         openInfoPanel();
     }).catch(error => {
         console.error('Error loading the data: ', error);
