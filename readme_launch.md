@@ -14,7 +14,7 @@ cd THE-PLP
 ```bash
 python -m http.server
 ```
-- Go on your browser and copy pastre the following: http://localhost:8000/worldmap.html
+- Go on your browser and copy pastre the following: http://localhost:8000/index.html
 
 **You have now acces to the website**
 
