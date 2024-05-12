@@ -63,10 +63,10 @@ nav button:hover {
     transition: width 0.5s ease; /* Smooth transition for width changes */
 }
 
-    #info-content {
-        padding: 20px; /* Marge intérieure pour l'esthétique */
-        color: white; /* Couleur du texte en blanc */
-    }
+#info-content {
+    padding: 20px; /* Marge intérieure pour l'esthétique */
+    color: white; /* Couleur du texte en blanc */
+}
   
 .info-panel.open {
         width: 25%; /* Taille du panneau ouvert */
@@ -96,6 +96,9 @@ nav button:hover {
     font-size: 24px;
     color: red;
 }
+
+
+
 
 
 #map-overlay {

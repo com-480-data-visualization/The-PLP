@@ -1,5 +1,9 @@
 var map;  // Variable globale pour la carte
 let showDangerosity = false;
+const dangerLevelScale = d3.scaleThreshold()
+    .domain([0.28, 0.78, 2.47, 10, 20, 36.78]) // same as the colorScale domain, but without the first element
+    .range(['Very Low', 'Low', 'Medium', 'High', 'Very High', 'Extreme', 'Maximal']);
+    
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -125,20 +129,41 @@ function zoomToFeature(e) {
 
 
 function displayCountryInfo(countryName) {
-    console.log("Bonjour");
     d3.csv('../assets/data/computed_dataset/full_dataset.csv').then(data => {
         const countryData = data.find(d => d.country === countryName) || {};
         const flagUrl = countryData.image_url;
+        var dangerRate = countryDataMap.get(countryName) || 0;
+        var fillColor = getColorForDangerRate(dangerRate)
+        var danger = dangerLevelScale(dangerRate)
+
+
+        console.log(countryData.population.toLocaleString('de-CH'));
         const infoHtml = `
         <div class="info-header">
-        <h2>${countryName} <img src="${flagUrl}" alt="flag" style="height: 1.5em;"></h2>
-
+            <h2>${countryName} <img src="${flagUrl}" alt="flag" style="height: 3em; margin-right: -100px;"></h2>
         </div>
-        <div class="info-content-item highlighted"> ${countryData.alpha2 || 'Data not available'}</div>
-        <div class="info-content-item">Number of firearms in circulation: ${countryData.gunOwnershipByCountry_firearms || 'Data not available'}</div>
-            <div class="info-content-item">Ownership rate per 100 people: ${countryData.gunOwnershipByCountry_per100 || 'Data not available'}</div>
-            <div class="info-content-item">Gun-related deaths (Total 2024): ${countryData.GunDeathsAllCausesTotal2019 || 'Data not available'}</div>
-            <div class="info-content-item">Gun-related death rate (per 100k, 2024): ${countryData.GunDeathsViolentRatePer100k2019 || 'Data not available'}</div>
+        <div class="info-content-item highlighted">
+        ${countryData.alpha2 || 'Data not available'}
+        </div>
+        <div class="info-content-item">
+        Population: ${countryData.population || 'Data not available'}
+        </div>
+        <div class="info-content-item">
+            Capital: ${countryData.CAPITALE || 'Data not available'}
+        </div>
+        <div class="info-content-item">
+            Dangerosity: <span style="color: ${fillColor}">${danger || 'Data not available'}</span>
+        </div>
+    
+        <div class="info-content-item">
+        Number of firearms in circulation: ${countryData.gunOwnershipByCountry_firearms || 'Data not available'}
+        </div>
+        <div class="info-content-item">
+        Ownership rate per 100 people: ${countryData.gunOwnershipByCountry_per100 || 'Data not available'}
+        </div>
+        <div class="info-content-item">
+        Gun-related deaths: ${countryData.GunDeathsAllCausesTotal2019 || 'Data not available'}
+        </div>
         `;
         document.getElementById('info-content').innerHTML = infoHtml;
         openInfoPanel();
