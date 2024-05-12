@@ -1,5 +1,4 @@
-## To use the website localy (test of the website for dev and milestone 2):
-
+## To use the website localy:
 
 In your terminal copy paste the following:
 
