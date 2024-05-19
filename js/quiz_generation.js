@@ -40,12 +40,12 @@ function chooseQuestion(num_questions, lastTemplateIndex) {
 
 async function loadCountries() {
     try {
-        const countriesGunsData = await d3.json('../assets/data/basic_dataset/gun-ownership-by-country-2024.json')
+        const countriesGunsData = await d3.json('assets/data/basic_dataset/gun-ownership-by-country-2024.json')
         const countriesGunsSet = new Set(countriesGunsData.map(d => d.country));
         const countriesGuns = Array.from(countriesGunsSet);
 
         
-        const countriesDeathsData = await d3.json('../assets/data/basic_dataset/gun-deaths-by-country-2024.json')
+        const countriesDeathsData = await d3.json('assets/data/basic_dataset/gun-deaths-by-country-2024.json')
         const countriesDeathsSet = new Set(countriesDeathsData.map(d => d.country));
         const countriesDeaths = Array.from(countriesDeathsSet);
 
@@ -187,11 +187,11 @@ const attributes = [
 // Charger les données une fois au début
 let deathsData, ownershipData;
 
-d3.json('../assets/data/basic_dataset/gun-deaths-by-country-2024.json')
+d3.json('assets/data/basic_dataset/gun-deaths-by-country-2024.json')
     .then(data => { deathsData = data; })
     .catch(err => console.error("Error loading JSON file ", err));
 
-d3.json('../assets/data/basic_dataset/gun-ownership-by-country-2024.json')
+d3.json('assets/data/basic_dataset/gun-ownership-by-country-2024.json')
     .then(data => { ownershipData = data; })
     .catch(err => console.error("Error loading JSON file ", err));
 

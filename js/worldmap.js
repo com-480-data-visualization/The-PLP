@@ -36,7 +36,7 @@ function addMapBounds(map) {
 
 
 function loadGeoJSON(map) {
-    d3.json('../assets/data/basic_dataset/countries.geojson').then(function(geojsonData) {
+    d3.json('assets/data/basic_dataset/countries.geojson').then(function(geojsonData) {
 
         const countriesLayer = L.geoJSON(geojsonData, {
             style: featureStyle,
@@ -129,7 +129,7 @@ function zoomToFeature(e) {
 
 
 function displayCountryInfo(countryName) {
-    d3.csv('../assets/data/computed_dataset/full_dataset.csv').then(data => {
+    d3.csv('assets/data/computed_dataset/full_dataset.csv').then(data => {
         const countryData = data.find(d => d.country === countryName) || {};
         const flagUrl = countryData.image_url;
         var dangerRate = countryDataMap.get(countryName) || 0;
@@ -206,7 +206,7 @@ const colorScale = d3.scaleLinear()
     .range(['green', 'rgb(205, 187, 50)', 'orange', 'red', 'purple', 'darkred', 'black']);
 
 function loadData() {
-    d3.json('../assets/data/basic_dataset/gun-deaths-by-country-2024.json').then(data => {
+    d3.json('assets/data/basic_dataset/gun-deaths-by-country-2024.json').then(data => {
         data.forEach(item => {
             countryDataMap.set(item.country, item.GunDeathsViolentRatePer100k2019);
         });
