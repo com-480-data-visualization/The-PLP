@@ -61,7 +61,11 @@ To try the curent version of our website please follow the first part of the [re
 
 ## Milestone 3 (31st May, 5pm)
 
-**80% of the final grade**
+You can find the website hosted on github pages, to see the wensite use the following address:
+```bash
+https://com-480-data-visualization.github.io/The-PLP/
+```
+
 
 
 ## Late policy
