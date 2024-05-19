@@ -127,11 +127,17 @@ nav button:hover {
 .info-header img {
     position: absolute;
     right: 10px;
-    width: 50%;
+    width: 45%;
     top: 45px;
 
 }
 
+.info-content-item.name {
+    
+    position: relative;
+    top: 10px;
+    
+}
 
 
 
