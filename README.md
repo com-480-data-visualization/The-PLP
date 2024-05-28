@@ -68,6 +68,11 @@ https://com-480-data-visualization.github.io/The-PLP/
 
 Here is the [Description of the project](Milestone_3.pdf) .
 
+You can watch a demonstration of the Perilpedia website by clicking on this link:
+```bash
+https://youtu.be/nNOQC-b_W24
+```
+
 ## Late policy
 
 - < 24h: 80% of the grade for the milestone
