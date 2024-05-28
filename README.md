@@ -66,7 +66,7 @@ You can find the website hosted on github pages, to see the wensite use the foll
 https://com-480-data-visualization.github.io/The-PLP/
 ```
 
-
+Here is the [Description of the project](Milestone_3.pdf) .
 
 ## Late policy
 
