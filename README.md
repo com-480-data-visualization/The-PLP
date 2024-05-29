@@ -73,6 +73,8 @@ You can watch a demonstration of the Perilpedia website by clicking on this link
 https://youtu.be/nNOQC-b_W24
 ```
 
+Finaly the report of the project is in the pdf: Milestone_3.pdf in the repo.
+
 ## Late policy
 
 - < 24h: 80% of the grade for the milestone
